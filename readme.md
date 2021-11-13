@@ -1,8 +1,8 @@
 # CAFE DOM bandomasis 2
 
 ## Reikalingos programos:
--Node.js
--Naršyklė
+- Node.js
+- Naršyklė
 
 ## Instaliavimas:
 * šio failo direktorijoje įvykdykite komandą:
