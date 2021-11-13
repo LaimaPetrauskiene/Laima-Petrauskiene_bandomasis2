@@ -22,8 +22,8 @@ class API {
 //    console.error
 // )
 
-API.deleteToy(
-    "4",
-    () => console.log('Ištrinta sėkmingai'),
-    console.error
-)
+// API.deleteToy(
+//    "4",
+//    () => console.log('Ištrinta sėkmingai'),
+//    console.error
+// )
