@@ -1,0 +1,23 @@
+{
+  "name": "laima-petrauskiene_bandomasis2",
+  "version": "1.0.0",
+  "description": "CAFE DOM bandomasis-2",
+  "main": "index.js",
+  "scripts": {
+    "start-unix": "node_modules/.bin/json-server --watch database.json",
+    "start-win": "node_modules\\.bin\\json-server --watch database.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaimaPetrauskiene/Laima-Petrauskiene_bandomasis2.git"
+  },
+  "author": "Laima Petrauskiene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaimaPetrauskiene/Laima-Petrauskiene_bandomasis2/issues"
+  },
+  "homepage": "https://github.com/LaimaPetrauskiene/Laima-Petrauskiene_bandomasis2#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
