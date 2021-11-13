@@ -1,52 +1,68 @@
 {
-    "toy": [
-        {
-            "id": "1",
-            "title": "mašina",
-            "price": {
-                "currency": "$",
-                "amount": 24
-            },
-            "ageRestrictions": {
-                "from": 5
-            },
-            "discount": {
-                "type": "percentage",
-                "amount": 3
-            },
-            "imgSrc": "https://4.imimg.com/data4/BB/QU/MY-23659049/kids-toys-bikes-cars-automobile-500x500.jpg"
+  "toys": [
+      {
+          "id": "1",
+          "title": "mašina",
+          "price": {
+              "currency": "$",
+              "amount": 24
+          },
+          "ageRestrictions": {
+              "from": 5
+          },
+          "discount": {
+              "type": "percentage",
+              "amount": 3
+          },
+          "imgSrc": "https://4.imimg.com/data4/BB/QU/MY-23659049/kids-toys-bikes-cars-automobile-500x500.jpg"
+      },
+      {
+          "id": "2",
+          "title": "lėktuvas",
+          "price": {
+              "currency": "€",
+              "amount": 35
+          },
+          "ageRestrictions": {
+              "from": null
+          },
+          "discount": {
+              "type": "toFixed",
+              "amount": 32.99
+          },
+          "imgSrc": "https://m.media-amazon.com/images/I/71oQZo1RDdL._AC_SL1500_.jpg"
+      },
+      {
+          "id": "3",
+          "title": "lėlė",
+          "price": {
+              "currency": "$",
+              "amount": 13.99
+          },
+          "ageRestrictions": {
+              "from": 1
+          },
+          "discount": {
+              "type": "amount",
+              "amount": 4.99
+          },
+          "imgSrc": "https://m.media-amazon.com/images/I/81uHH4PRvNL._AC_SX425_.jpg"
+      },
+      {
+        "id": "4",
+        "title": "meškiukas",
+        "price": {
+            "currency": "$",
+            "amount": 19.99
         },
-        {
-            "id": "2",
-            "title": "lėktuvas",
-            "price": {
-                "currency": "€",
-                "amount": 35
-            },
-            "ageRestrictions": {
-                "from": null
-            },
-            "discount": {
-                "type": "toFixed",
-                "amount": 32.99
-            },
-            "imgSrc": "https://m.media-amazon.com/images/I/71oQZo1RDdL._AC_SL1500_.jpg"
+        "ageRestrictions": {
+            "from": 3
         },
-        {
-            "id": "3",
-            "title": "lėlė",
-            "price": {
-                "currency": "$",
-                "amount": 13.99
-            },
-            "ageRestrictions": {
-                "from": 1
-            },
-            "discount": {
-                "type": "amount",
-                "amount": 4.99
-            },
-            "imgSrc": "https://m.media-amazon.com/images/I/81uHH4PRvNL._AC_SX425_.jpg"
-        }
-    ]
+        "discount": {
+            "type": "amount",
+            "amount": 14.99
+        },
+        "imgSrc": "https://www.varle.lt/static/uploads/products/240/llo/llopis-pliusinis-meskinas-50cm-asort-10598.jpg"
+    }
+  ]
 }
