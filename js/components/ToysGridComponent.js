@@ -39,9 +39,15 @@ saveToys = (toys) => {
 render = () => {
     const {loading, toys} = this.state;
     if(loading) {
-        this.htmlElement.innerHTML = `Siunčiama...`;
+        this.htmlElement.innerHTML = `<div class=text-center"><img src="assets/loading.gif"/></div>`;
+    } else if(toys.length > 0){
+       this.htmlElement.innerHTML = '';
+        const toysElements = toys
+        .map(x => new ToyCardComponent(x))
+        .map(x => x.htmlElement);
+        this.htmlElement.append(...toysElements);
     } else {
-        this.htmlElement.innerHTML = `Parsiųsta...`;
+        this.htmlElement.innerHTML = `Šiuo metu žaislų nėra`;
     }
 }
 
