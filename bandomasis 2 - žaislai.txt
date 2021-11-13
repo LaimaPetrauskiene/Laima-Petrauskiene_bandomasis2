@@ -1,0 +1,86 @@
+1. Sukurkite repozitoriją, kurioje atliksite darbus. [1]
+  - papildykite .gitignore failą, jog nebūtų reaguojama į
+    * /node_modules aplanko pasikeitimus.
+    * package-lock.json failo pakeitimus.
+  - Šį commit'ą pavadinkite '1: init'
+  - Po kiekvienos sekančios užduoties atlikite commit'ą įvardindami ką darėte.
+
+2. Sukurkite pardavimui skirtų automobilių masyvą naudodami JSON server. [1]
+    - Daiktus sukurkite taip, jog būtų panaudotos visos savybių variacijos.
+    - Taip pat rekomenduojama susikurti json duomenų kopiją, jog aplikacijai pakeitus duomenis būtų galima persikopijuoti orginalius/pradinius duomenis.
+    žaislą aprašančios savybės:
+      type Toy = {
+        id: string,
+        title: string,
+        price: {
+          currency: '$' | '€',
+          amount: number
+        },
+        ageRestrictions: {
+          from: number;
+        } | null,
+        discount: {
+          type: 'percentage' | 'toFixed' | 'amount',
+          amount: number
+        },
+        imgSrc: 'string'
+      }
+
+3. Sukurkite projekto aprašymą: [1]  
+  - sugeneruokite package.json failą
+  - parsiųskite json-server biblioteką
+  - sukurkite failą readme.md, ir jame aprašykite:
+    - kokių reikia programų
+    - kaip ir ką reikią suinstaliuoti
+    - kaip paleisti projektą
+  - pasileiskite serverį
+
+4. Pasiruoškite komponentų kūrimui: [1]
+  Susikurkite/parsisiųskite  ir strukturizuokite failus:
+    - js/
+      - components/
+        - ToyCardComponent.js
+        - ToysGridComponent.js
+      - API.js
+      - main.js
+    - index.html
+    - assets/ 
+      - loading.gif
+------------------------
+  * index.html
+    * įsitraukite bootstrap
+    * įsitraukite javaScript failus
+    * sukurkite šakinį elementą, kuriame generuosite turinį su javaScript
+    
+  * js/components/ToysGridComponent.js
+        * Sukurkite minimalų komponentą ir htmlElement turinį testavimui
+
+  * js/main.js
+        * Prijunkite ToysGridComponent klasės objektą į jau egzistuojantį HTML elementą
+
+5. Papildykite failą API.js, aprašyti HTTP requestams. Patikrinkite rezultatus konsolėje. [1]
+  HTTP metodas | url         | tikslas
+  ------------------------------------------------------
+  GET          | /toys       | gauti visus žaislus
+  DELETE       | /toys/{id}  | ištrinti vieną žaislą
+
+6. Faile ToyGridComponent.js panaudokite API.js faile sukurtą funkciją gauti visoms mašinoms: [1]
+  - Tol kol siunčiami duomenys parašykite 'siunčiama...'
+  - Parsiuntus užrašykite 'parsiųsta!'
+  
+7. Įgalinti laukimo animaciją, kol yra parsiunčiami duomenys [1]
+  - dirbtinai užvilkinti parsiuntimą 1s, jog matytūsi animaciją
+  - Kol siunčiami duomenys, atvaizduokite animaciją
+  - Parsiuntus duomenis atvaizduokite minimalius kortelių elementus, pagal parsiųstus duomenis
+
+8. ToyCardComponent klasėje įgalinkite komponeneto atvaizdavimą pagal this.props gautas reikšmes: [1]
+  - JEIGU KAINA PATEIKTA DOLERIAIS, PAVERSKITE EURAIS IR TUOMET ATVAIZDUOKITE
+  - KAINAI KONVERTUOTI IŠ DOLERIŲ Į EURUS NAUDOKITE STATINĮ KINTAMAJĮ <USD_EUR>
+  - GALUTINIAM VARIANTE, VISOS KAINOS TURI BŪTI EURAIS
+  - Nuolaido gali būti įvairių tipų: 
+      'percentage' - rodoma nubraukta kaina ir kaina su procentine nuolaida
+      'toFixed' - rodoma nubraukta kaina ir fiksuota mažesnė kaina 
+      'amount' - rodoma nubraukta kaina ir kaina su absoliučia nuolaida
+
+9. Kiekvienoje ToyCardComponent kortelėje sukurkite ištrinimo mygtuką, kuris trintų kortelę ir kortelę atitinkančius duomenis serveryje [2]
+  - Po ištrinimo turi dingti kortelė iš puslapyje matomų komponentų sąrašo ir serverio duomenų.
