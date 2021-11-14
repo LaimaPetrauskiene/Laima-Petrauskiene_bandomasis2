@@ -32,8 +32,15 @@ class ToysGridComponent {
 
 saveToys = (toys) => {
     this.state.toys = toys;
-    this.state.loading = false;
+    this.htmlElement.className = 'row g-3';
     this.render();
+}
+
+wrapInColumn = (element) => {
+    const column = document.createElement('div');
+    column.className = 'col-12 col-sm-6 col-lg-3 col-xl-4';
+    column.appendChild(element);
+    return column;
 }
 
 render = () => {
@@ -44,7 +51,8 @@ render = () => {
        this.htmlElement.innerHTML = '';
         const toysElements = toys
         .map(x => new ToyCardComponent(x))
-        .map(x => x.htmlElement);
+        .map(x => x.htmlElement)
+        .map(this.wrapInColumn);
         this.htmlElement.append(...toysElements);
     } else {
         this.htmlElement.innerHTML = `Šiuo metu žaislų nėra`;
