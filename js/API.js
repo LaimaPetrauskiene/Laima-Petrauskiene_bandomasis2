@@ -3,12 +3,12 @@ const baseURL = "http://localhost:3000";
 
 class API {
     static fetchToys = (success, failure) => {
-        setTimeout(() => {
-            fetch(`${baseURL}/toys`)
-                .then(res => res.json())
-                .then(success)
-                .catch(failure)
-        }, 1000);
+
+        fetch(`${baseURL}/toys`)
+            .then(res => res.json())
+            .then(success)
+            .catch(failure)
+
     }
 
 

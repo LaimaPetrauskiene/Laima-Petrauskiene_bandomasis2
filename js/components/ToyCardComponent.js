@@ -8,53 +8,52 @@ class ToyCardComponent {
         this.init();
     }
 
-    fortmatBadge = (content) => 
-    `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success ms-4">${content}</span>`;
+    fortmatBadge = (content) =>
+        `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success ms-4">${content}</span>`;
 
-  formatPrice = () => {
-    const {
-      price: { currency, amount },
-      discount: { type, amount: value }
-    } = this.props;
-    const priceInEuro = currency === '$' ? amount * ToyCardComponent.USD_EUR : amount;
+    formatPrice = () => {
+        const {
+            price: { currency, amount },
+            discount: { type, amount: value }
+        } = this.props;
+        const priceInEuro = currency === '$' ? amount * ToyCardComponent.USD_EUR : amount;
         const formatedPrice = Math.round(100 * priceInEuro) / 100 + ' €';
 
 
 
-    let finalPrice;
-    let discountBadge = '';
-    switch (type) {
-      case 'amount':
-        finalPrice = parseInt(formatedPrice) - value;
-        discountBadge = this.fortmatBadge(`-${value} €`);
-        console.log(finalPrice);
-        break;
-      case 'toFixed':
-        finalPrice = value;
-        break;
-      case 'percentage':
-        finalPrice = Math.round(100 * parseInt(formatedPrice) * (1 - value / 100)) / 100;
-        discountBadge = this.fortmatBadge(`-${value} %`);
-        break;
-    }
+        let finalPrice;
+        let discountBadge = '';
+        switch (type) {
+            case 'amount':
+                finalPrice = parseInt(formatedPrice) - value;
+                discountBadge = this.fortmatBadge(`-${value} €`);
+                break;
+            case 'toFixed':
+                finalPrice = value;
+                break;
+            case 'percentage':
+                finalPrice = Math.round(100 * parseInt(formatedPrice) * (1 - value / 100)) / 100;
+                discountBadge = this.fortmatBadge(`-${value} %`);
+                break;
+        }
 
-    return `
+        return `
     <span class="d-inline-flex">
       <span class="text-decoration-line-through fw-light pe-2 text-danger">${amount} ${currency}</span>
       <strong class="text-success position-relative">${finalPrice} € ${discountBadge}</strong>
     </span>`;
-  }
+    }
 
     formatAgeRestriction = () => {
         const { ageRestrictions } = this.props;
         return ageRestrictions
-          ? `<div>Age: ${ageRestrictions.from}+</div>`
-          : `<div class="text-white user-select-none">fake text</div>`;
-      }
+            ? `<div>Age: ${ageRestrictions.from}+</div>`
+            : `<div class="text-white user-select-none">fake text</div>`;
+    }
 
     init = () => {
-        const { title, imgSrc } = this.props;
-        
+        const { title, imgSrc, onDelete } = this.props;
+
 
         this.htmlElement = document.createElement('article');
         this.htmlElement.className = "card p-3 shadow";
@@ -74,6 +73,15 @@ class ToyCardComponent {
             ${this.formatPrice()}</span>
             </li>
            
-        </ul>`;
+        </ul>
+        <div class="text-center">
+            <button class="btn btn-danger">Ištrinti</button>
+          </div>
+        
+        `
+        const btn = this.htmlElement.querySelector('.btn');
+        btn.addEventListener('click', onDelete);
+
+        ;
     }
 }
